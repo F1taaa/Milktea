@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milktea Delight</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">Milktea Delight</a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="menu.html" class="nav-link">Menu</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="cart-icon">
+        <span id="cart-count">0</span>
+        <i><a href="cart.html" class="fas fa-shopping-cart"></a></i>
+      </div>
+      
+    </div>
+  </header>
+
+  <main>
+ <!-- Shopping Cart Section -->
+ <main class="cart-main">
+    <div class="cart-container">
+      <div class="cart-header">
+        <h2>Your Shopping Cart</h2>
+        <p class="cart-steps">
+          <span class="step active">Cart</span>
+          <span class="step-divider"></span>
+          <span class="step">Delivery</span>
+          <span class="step-divider"></span>
+          <span class="step">Payment</span>
+        </p>
+      </div>
+      
+      <!-- Cart Items -->
+      <div class="cart-content">
+        <div id="cart-items" class="cart-items">
+          <div id="cart-empty-message" class="cart-empty">
+            <i class="fas fa-shopping-cart"></i>
+            <p>Your cart is currently empty</p>
+            <a href="menu.html" class="btn btn-primary">Browse Menu</a>
+          </div>
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-sidebar">
+          <div class="cart-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-details">
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">$0.00</span>
+              </div>
+              <div class="summary-row">
+                <span>Tax (5%)</span>
+                <span id="cart-tax">$0.00</span>
+              </div>
+              <div class="summary-row">
+                <span>Delivery Fee</span>
+                <span id="delivery-fee">$2.00</span>
+              </div>
+              <div class="summary-total">
+                <span>Total</span>
+                <span id="cart-total">$0.00</span>
+              </div>
+            </div>
+            <button id="checkout-btn" class="btn btn-checkout">
+              <span>Proceed to Checkout</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <div class="secure-checkout">
+              <i class="fas fa-lock"></i>
+              <span>Secure Checkout</span>
+            </div>
+            <div class="payment-methods">
+                <img src="/assets/gcash.svg" alt="Gcash">
+                <img src="/assets/mastercard.svg" alt="Mastercard">
+                <img src="/assets/paypal.svg" alt="PayPal">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+      
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="footer-contact">
+            <p><i class="fas fa-map-marker-alt"></i> 123 Milktea Street, City, Country</p>
+            <p><i class="fas fa-phone-alt"></i> +1 (555) 123-4567</p>
+            <p><i class="fas fa-envelope"></i> hello@milkteadelight.com</p>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="footer-social">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Theodore.Dev. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

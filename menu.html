@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Milktea Delight</title>
+  <meta name="description" content="Discover our handcrafted milk tea creations at Milktea Delight">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="menu.css">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Milktea Delight</a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="menu.html" class="nav-link">Menu</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="cart-icon">
+        <span id="cart-count">0</span>
+        <i><a href="cart.html" class="fas fa-shopping-cart" aria-label="Shopping Cart"></a></i>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="menu-hero">
+      <div class="menu-hero-content">
+        <h1>Our Menu</h1>
+        <p>Discover our handcrafted milk tea creations</p>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="featured-products">
+      <div class="menu-header">
+        <h2>Our Signature Blends</h2>
+        <p class="menu-subtitle">Choose from our carefully curated selection of premium milk teas</p>
+        <div class="product-filters" role="tablist" aria-label="Product category filters">
+          <button class="filter-btn active" data-category="all" role="tab" aria-selected="true">All Drinks</button>
+          <button class="filter-btn" data-category="classic" role="tab" aria-selected="false">Classic Teas</button>
+          <button class="filter-btn" data-category="signature" role="tab" aria-selected="false">Signature Series</button>
+          <button class="filter-btn" data-category="fruit" role="tab" aria-selected="false">Fruit Blends</button>
+        </div>
+      </div>
+
+      <div class="category-description" id="category-description">
+        <p>Explore our full selection of handcrafted beverages</p>
+      </div>
+
+      <!-- Product Grid Container -->
+      <div class="product-grid">
+        <!-- Product Card 1: Classic Milk Tea -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="/assets/gongchatea.jpg" alt="Classic Milk Tea">
+            <span class="category-tag">Classic</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <h3 class="product-title">Classic Milk Tea</h3>
+              <span class="product-price">$4.99</span>
+            </div>
+            <p class="product-description">Our signature milk tea blend with premium black tea and creamy milk</p>
+            <div class="product-footer">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <span>4.8</span>
+              </div>
+              <div class="product-actions">
+                <button class="add-to-cart-btn">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 2: Taro Milk Tea -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="/assets/taro milktea.jpg" alt="Taro Milk Tea">
+            <span class="category-tag">Signature</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <h3 class="product-title">Taro Milk Tea</h3>
+              <span class="product-price">$5.49</span>
+            </div>
+            <p class="product-description">A creamy and sweet blend of taro root and milk, topped with boba pearls</p>
+            <div class="product-footer">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <span>4.7</span>
+              </div>
+              <div class="product-actions">
+                <button class="add-to-cart-btn">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 3: Matcha Red Bean Milk Tea -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="/assets/matcharedbean.jpg" alt="Matcha Red Bean Milk Tea">
+            <span class="category-tag">Signature</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <h3 class="product-title">Matcha Red Bean Milk Tea</h3>
+              <span class="product-price">$5.99</span>
+            </div>
+            <p class="product-description">A refreshing matcha green tea base with sweet red bean and creamy milk</p>
+            <div class="product-footer">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <span>4.9</span>
+              </div>
+              <div class="product-actions">
+                <button class="add-to-cart-btn">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for Classic Milk Tea -->
+      <div class="modal" id="quickViewModal">
+        <div class="modal-content">
+          <button class="modal-close"><i class="fas fa-times"></i></button>
+          <div class="modal-grid">
+            <div class="modal-image">
+              <img src="/assets/gongchatea.jpg" alt="Classic Milk Tea">
+            </div>
+            <div class="modal-details">
+              <h2>Classic Milk Tea</h2>
+              <div class="price-rating">
+                <span class="modal-price">$4.99</span>
+              </div>
+              <!-- Product Options -->
+              <div class="product-options">
+                <!-- Size Options -->
+                <div class="option-group">
+                  <h3>Size</h3>
+                  <div class="size-options">
+                    <button class="size-btn active" data-size="regular">Regular</button>
+                    <button class="size-btn" data-size="large">Large (+$1)</button>
+                  </div>
+                </div>
+                <!-- Sugar Level -->
+                <div class="option-group">
+                  <h3>Sugar Level</h3>
+                  <div class="sugar-options">
+                    <button class="sugar-btn" data-sugar="0">0%</button>
+                    <button class="sugar-btn" data-sugar="30">30%</button>
+                    <button class="sugar-btn active" data-sugar="50">50%</button>
+                    <button class="sugar-btn" data-sugar="100">100%</button>
+                  </div>
+                </div>
+                <!-- Ice Level -->
+                <div class="option-group">
+                  <h3>Ice Level</h3>
+                  <div class="ice-options">
+                    <button class="ice-btn" data-ice="no">No Ice</button>
+                    <button class="ice-btn" data-ice="less">Less Ice</button>
+                    <button class="ice-btn active" data-ice="regular">Regular</button>
+                    <button class="ice-btn" data-ice="extra">Extra Ice</button>
+                  </div>
+                </div>
+                <!-- Toppings -->
+                <div class="option-group">
+                  <h3>Add Toppings ($0.75 each)</h3>
+                  <div class="toppings-options">
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="boba">
+                      <span>Boba Pearls</span>
+                    </label>
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="pudding">
+                      <span>Pudding</span>
+                    </label>
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="grass-jelly">
+                      <span>Grass Jelly</span>
+                    </label>
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="aloe">
+                      <span>Aloe Vera</span>
+                    </label>
+                  </div>
+                </div>
+                <!-- Milk Options -->
+                <div class="option-group">
+                  <h3>Milk Type</h3>
+                  <select class="milk-select">
+                    <option value="regular">Regular</option>
+                    <option value="oat">Oat Milk (+$0.75)</option>
+                    <option value="almond">Almond Milk (+$0.75)</option>
+                    <option value="soy">Soy Milk (+$0.75)</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Modal Actions -->
+              <div class="modal-actions">
+                <div class="quantity-selector">
+                  <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                  <input type="number" value="1" min="1" max="10" class="quantity-input">
+                  <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                </div>
+                <button class="modal-add-to-cart">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for Taro Milk Tea -->
+      <div class="modal" id="taroModal">
+        <div class="modal-content">
+          <button class="modal-close"><i class="fas fa-times"></i></button>
+          <div class="modal-grid">
+            <div class="modal-image">
+              <img src="/assets/taro-milktea.jpg" alt="Taro Milk Tea">
+            </div>
+            <div class="modal-details">
+              <h2>Taro Milk Tea</h2>
+              <div class="price-rating">
+                <span class="modal-price">$5.49</span>
+              </div>
+              <!-- Product Options -->
+              <div class="product-options">
+                <!-- Size Options -->
+                <div class="option-group">
+                  <h3>Size</h3>
+                  <div class="size-options">
+                    <button class="size-btn active" data-size="regular">Regular</button>
+                    <button class="size-btn" data-size="large">Large (+$1)</button>
+                  </div>
+                </div>
+                <!-- Sugar Level -->
+                <div class="option-group">
+                  <h3>Sugar Level</h3>
+                  <div class="sugar-options">
+                    <button class="sugar-btn" data-sugar="0">0%</button>
+                    <button class="sugar-btn" data-sugar="30">30%</button>
+                    <button class="sugar-btn active" data-sugar="50">50%</button>
+                    <button class="sugar-btn" data-sugar="100">100%</button>
+                  </div>
+                </div>
+                <!-- Ice Level -->
+                <div class="option-group">
+                  <h3>Ice Level</h3>
+                  <div class="ice-options">
+                    <button class="ice-btn" data-ice="no">No Ice</button>
+                    <button class="ice-btn" data-ice="less">Less Ice</button>
+                    <button class="ice-btn active" data-ice="regular">Regular</button>
+                    <button class="ice-btn" data-ice="extra">Extra Ice</button>
+                  </div>
+                </div>
+                <!-- Toppings -->
+                <div class="option-group">
+                  <h3>Add Toppings ($0.75 each)</h3>
+                  <div class="toppings-options">
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="boba">
+                      <span>Boba Pearls</span>
+                    </label>
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="pudding">
+                      <span>Pudding</span>
+                    </label>
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="grass-jelly">
+                      <span>Grass Jelly</span>
+                    </label>
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="aloe">
+                      <span>Aloe Vera</span>
+                    </label>
+                  </div>
+                </div>
+                <!-- Milk Options -->
+                <div class="option-group">
+                  <h3>Milk Type</h3>
+                  <select class="milk-select">
+                    <option value="regular">Regular</option>
+                    <option value="oat">Oat Milk (+$0.75)</option>
+                    <option value="almond">Almond Milk (+$0.75)</option>
+                    <option value="soy">Soy Milk (+$0.75)</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Modal Actions -->
+              <div class="modal-actions">
+                <div class="quantity-selector">
+                  <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                  <input type="number" value="1" min="1" max="10" class="quantity-input">
+                  <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                </div>
+                <button class="modal-add-to-cart">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for Matcha Red Bean Milk Tea -->
+      <div class="modal" id="matchaModal">
+        <div class="modal-content">
+          <button class="modal-close"><i class="fas fa-times"></i></button>
+          <div class="modal-grid">
+            <div class="modal-image">
+              <img src="/assets/matcharedbean.jpg" alt="Matcha Red Bean Milk Tea">
+            </div>
+            <div class="modal-details">
+              <h2>Matcha Red Bean Milk Tea</h2>
+              <div class="price-rating">
+                <span class="modal-price">$5.99</span>
+              </div>
+              <!-- Product Options -->
+              <div class="product-options">
+                <!-- Size Options -->
+                <div class="option-group">
+                  <h3>Size</h3>
+                  <div class="size-options">
+                    <button class="size-btn active" data-size="regular">Regular</button>
+                    <button class="size-btn" data-size="large">Large (+$1)</button>
+                  </div>
+                </div>
+                <!-- Sugar Level -->
+                <div class="option-group">
+                  <h3>Sugar Level</h3>
+                  <div class="sugar-options">
+                    <button class="sugar-btn" data-sugar="0">0%</button>
+                    <button class="sugar-btn" data-sugar="30">30%</button>
+                    <button class="sugar-btn active" data-sugar="50">50%</button>
+                    <button class="sugar-btn" data-sugar="100">100%</button>
+                  </div>
+                </div>
+                <!-- Ice Level -->
+                <div class="option-group">
+                  <h3>Ice Level</h3>
+                  <div class="ice-options">
+                    <button class="ice-btn" data-ice="no">No Ice</button>
+                    <button class="ice-btn" data-ice="less">Less Ice</button>
+                    <button class="ice-btn active" data-ice="regular">Regular</button>
+                    <button class="ice-btn" data-ice="extra">Extra Ice</button>
+                  </div>
+                </div>
+                <!-- Toppings -->
+                <div class="option-group">
+                  <h3>Add Toppings ($0.75 each)</h3>
+                  <div class="toppings-options">
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="boba">
+                      <span>Boba Pearls</span>
+                    </label>
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="pudding">
+                      <span>Pudding</span>
+                    </label>
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="grass-jelly">
+                      <span>Grass Jelly</span>
+                    </label>
+                    <label class="topping-checkbox">
+                      <input type="checkbox" name="topping" value="aloe">
+                      <span>Aloe Vera</span>
+                    </label>
+                  </div>
+                </div>
+                <!-- Milk Options -->
+                <div class="option-group">
+                  <h3>Milk Type</h3>
+                  <select class="milk-select">
+                    <option value="regular">Regular</option>
+                    <option value="oat">Oat Milk (+$0.75)</option>
+                    <option value="almond">Almond Milk (+$0.75)</option>
+                    <option value="soy">Soy Milk (+$0.75)</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Modal Actions -->
+              <div class="modal-actions">
+                <div class="quantity-selector">
+                  <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                  <input type="number" value="1" min="1" max="10" class="quantity-input">
+                  <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                </div>
+                <button class="modal-add-to-cart">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+    
+        
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="footer-contact">
+            <p><i class="fas fa-map-marker-alt"></i> 123 Milktea Street, City, Country</p>
+            <p><i class="fas fa-phone-alt"></i> +1 (555) 123-4567</p>
+            <p><i class="fas fa-envelope"></i> hello@milkteadelight.com</p>
+          </div>
+        </div>
+  
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+  
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="footer-social">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Theodore.Dev. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
