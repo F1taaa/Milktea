@@ -43,7 +43,7 @@ const Home = () => {
               Our journey began with a passion for authentic tea. We source the finest ingredients, blend them with care, and create experiences that warm your heart and delight your senses.
             </p>
             <p className="text-gray-600 text-lg font-poppins leading-relaxed">
-              At Cloudy Cup, we believe that every drink should be as dreamy as a cloud. That's why we use only the freshest milk and premium tea leaves.
+              At Cloudy Cup, we believe that every drink should be as dreamy as a cloud. That&apos;s why we use only the freshest milk and premium tea leaves.
             </p>
             <div className="pt-4">
               <Link to="/about" className="text-cloudy-brown font-bold border-b-2 border-cloudy-pink pb-1 hover:border-cloudy-brown transition-all">
