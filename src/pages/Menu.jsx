@@ -4,7 +4,7 @@ import { Search, Filter, ShoppingCart, Star } from 'lucide-react';
 import gongchaImg from '../assets/gongchatea.jpg';
 import taroImg from '../assets/taro milktea.jpg';
 import matchaImg from '../assets/matcharedbean.jpg';
-import fruitImg from '../assets/fruit tea.jpg';
+import fruitImg from '../assets/fruit tea.webp';
 import brownSugarImg from '../assets/brown sugar.jpg';
 
 const Menu = () => {
