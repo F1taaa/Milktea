@@ -10,35 +10,38 @@ const Testimonials = () => {
       name: 'Clarence D.',
       text: 'The Brown Sugar Nebula is literally like drinking a cloud. Best boba I\'ve ever had in my life.',
       image: clarenceImg,
-      rating: 5
+      rating: 5,
+      tag: 'Cloud Fanatic'
     },
     {
       name: 'Jian M.',
       text: 'Such an aesthetic place! The vibe is so cozy and the staff are incredibly friendly. My new study spot.',
       image: jianImg,
-      rating: 5
+      rating: 5,
+      tag: 'Cozy Regular'
     },
     {
       name: 'Dodong S.',
       text: 'Cloudy Cup brings back memories of my travels. Authentic, high-quality, and just plain delicious.',
       image: dodongImg,
-      rating: 5
+      rating: 5,
+      tag: 'Tea Explorer'
     }
   ];
 
   return (
-    <section className="py-32 bg-cloudy-bg relative overflow-hidden">
+    <section className="py-32 relative overflow-hidden bg-white/50">
       {/* Decorative blobs */}
-      <div className="absolute top-1/4 left-0 w-64 h-64 bg-cloudy-secondary/20 rounded-full blur-[100px] -z-10"></div>
-      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-cloudy-accent/10 rounded-full blur-[100px] -z-10"></div>
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-cloudy-primary/5 rounded-full blur-[120px] -z-10"></div>
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-cloudy-secondary/10 rounded-full blur-[120px] -z-10"></div>
 
       <div className="container mx-auto px-6">
-        <div className="text-center mb-24 space-y-4">
+        <div className="text-center mb-24">
           <motion.span
              initial={{ opacity: 0 }}
              whileInView={{ opacity: 1 }}
              viewport={{ once: true }}
-             className="text-cloudy-accent font-poppins font-bold uppercase tracking-[0.3em] text-xs"
+             className="section-subtitle"
           >
             Kind Words
           </motion.span>
@@ -46,33 +49,37 @@ const Testimonials = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-6xl font-serif font-bold text-cloudy-primary"
+            className="section-title"
           >
             What Our Sippers Say
           </motion.h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-cloudy-primary to-cloudy-purple mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="bg-white p-12 rounded-[3.5rem] shadow-sm border border-gray-50 flex flex-col items-center text-center relative hover:shadow-2xl transition-all duration-500 group"
+              className="glass-card p-10 flex flex-col items-center text-center relative hover:shadow-[0_20px_40px_-15px_rgba(110,133,183,0.15)] hover:-translate-y-2 transition-all duration-500 group"
             >
-              <div className="absolute top-8 left-1/2 -translate-x-1/2 text-cloudy-secondary/30 group-hover:text-cloudy-secondary transition-colors duration-500">
-                <Quote size={48} fill="currentColor" />
+              <div className="absolute top-10 right-10 text-cloudy-primary/5 group-hover:text-cloudy-primary/10 transition-colors duration-500">
+                <Quote size={80} fill="currentColor" />
               </div>
 
-              <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-xl mb-8 relative z-10 group-hover:scale-110 transition-transform duration-500">
-                <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+              <div className="relative mb-8">
+                <div className="w-24 h-24 rounded-3xl overflow-hidden border-4 border-white shadow-xl relative z-10 group-hover:rotate-6 transition-transform duration-500">
+                  <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+                </div>
+                <div className="absolute -inset-2 bg-cloudy-mist/50 blur-xl rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
 
               <div className="flex space-x-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
+                  <Star key={i} size={16} className="text-cloudy-accent fill-cloudy-accent" />
                 ))}
               </div>
 
@@ -80,10 +87,14 @@ const Testimonials = () => {
                 &quot;{testimonial.text}&quot;
               </p>
 
-              <h4 className="font-serif font-bold text-cloudy-primary text-xl relative z-10 group-hover:text-cloudy-accent transition-colors">
-                {testimonial.name}
-              </h4>
-              <p className="text-xs text-gray-400 font-poppins font-bold uppercase tracking-widest mt-1">Verified Drinker</p>
+              <div className="mt-auto">
+                <h4 className="font-serif font-black text-cloudy-text text-xl">
+                  {testimonial.name}
+                </h4>
+                <div className="mt-2 inline-block px-4 py-1 bg-cloudy-mist/50 rounded-full">
+                  <span className="text-[10px] text-cloudy-primary font-bold uppercase tracking-widest">{testimonial.tag}</span>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
