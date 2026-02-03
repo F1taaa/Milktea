@@ -1,107 +1,86 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Filter, ShoppingCart, Star } from 'lucide-react';
-import gongchaImg from '../assets/gongchatea.jpg';
-import taroImg from '../assets/taro milktea.jpg';
-import matchaImg from '../assets/matcharedbean.jpg';
-import fruitImg from '../assets/fruit tea.webp';
-import brownSugarImg from '../assets/brown sugar.jpg';
+import { Search, Star, Plus, Settings2, Sparkles } from 'lucide-react';
+import { menuItems, categories } from '../data/menu';
 
 const Menu = () => {
-  const [filter, setFilter] = useState('all');
-  const [search, setSearch] = useState('');
-
-  const menuItems = [
-    {
-      id: 1,
-      name: 'Classic Milk Tea',
-      price: 4.99,
-      category: 'classic',
-      image: gongchaImg,
-      rating: 4.8,
-      description: 'Our signature milk tea blend with premium black tea and creamy milk.'
-    },
-    {
-      id: 2,
-      name: 'Taro Milk Tea',
-      price: 5.49,
-      category: 'signature',
-      image: taroImg,
-      rating: 4.7,
-      description: 'A creamy and sweet blend of taro root and milk, topped with boba pearls.'
-    },
-    {
-      id: 3,
-      name: 'Matcha Red Bean',
-      price: 5.99,
-      category: 'signature',
-      image: matchaImg,
-      rating: 4.9,
-      description: 'A refreshing matcha green tea base with sweet red bean and creamy milk.'
-    },
-    {
-      id: 4,
-      name: 'Fruit Passion Tea',
-      price: 5.29,
-      category: 'fruit',
-      image: fruitImg,
-      rating: 4.6,
-      description: 'A vibrant blend of fresh passion fruit and premium green tea.'
-    },
-    {
-      id: 5,
-      name: 'Brown Sugar Boba',
-      price: 6.49,
-      category: 'signature',
-      image: brownSugarImg,
-      rating: 5.0,
-      description: 'Warm brown sugar pearls paired with chilled fresh milk.'
-    }
-  ];
-
-  const categories = [
-    { id: 'all', name: 'All Drinks' },
-    { id: 'classic', name: 'Classic' },
-    { id: 'signature', name: 'Signature' },
-    { id: 'fruit', name: 'Fruit' },
-  ];
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const filteredItems = menuItems.filter(item => {
-    const matchesFilter = filter === 'all' || item.category === filter;
-    const matchesSearch = item.name.toLowerCase().includes(search.toLowerCase());
-    return matchesFilter && matchesSearch;
+    const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
+    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          item.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
   });
 
   return (
-    <div className="pt-32 pb-24 min-h-screen">
+    <div className="pt-40 pb-32 min-h-screen bg-cloudy-bg overflow-hidden relative">
+      {/* Decorative background blobs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cloudy-mist/20 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cloudy-pink/20 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
+
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-serif font-bold text-cloudy-brown mb-6">Our Dreamy Menu</h1>
-          <p className="text-gray-500 font-poppins text-lg max-w-2xl mx-auto">Explore our carefully curated selection of handcrafted beverages designed to delight your senses.</p>
-        </div>
+        <header className="text-center mb-24 relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-md px-6 py-2 rounded-full border border-white shadow-sm mb-6"
+          >
+            <Sparkles size={16} className="text-cloudy-accent" />
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-cloudy-primary">The Full Experience</span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="section-title text-center"
+          >
+            Our Dreamy Menu
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-gray-400 font-poppins text-lg max-w-2xl mx-auto leading-relaxed"
+          >
+            Handcrafted beverages designed to transport you to the clouds. Each sip is a journey of taste and serenity.
+          </motion.p>
+        </header>
 
         {/* Filters and Search */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
-          <div className="flex bg-white p-1 rounded-2xl shadow-sm border border-gray-100 overflow-x-auto w-full md:w-auto">
+        <div className="flex flex-col lg:flex-row justify-between items-center mb-16 gap-8 bg-white/40 backdrop-blur-xl p-4 rounded-[2.5rem] border border-white/60 shadow-xl shadow-cloudy-primary/5">
+          <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar w-full lg:w-auto pb-2 lg:pb-0">
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setFilter(cat.id)}
-                className={`px-6 py-2 rounded-xl font-poppins font-medium transition-all whitespace-nowrap ${filter === cat.id ? 'bg-cloudy-brown text-white shadow-md' : 'text-gray-500 hover:text-cloudy-brown'}`}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-8 py-3.5 rounded-2xl font-poppins font-black transition-all whitespace-nowrap text-sm relative group ${
+                  activeCategory === cat.id
+                    ? 'text-white'
+                    : 'text-gray-400 hover:text-cloudy-primary'
+                }`}
               >
-                {cat.name}
+                {activeCategory === cat.id && (
+                  <motion.div
+                    layoutId="active-cat"
+                    className="absolute inset-0 bg-gradient-to-r from-cloudy-primary to-cloudy-accent rounded-2xl shadow-lg shadow-cloudy-primary/20"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10">{cat.name}</span>
               </button>
             ))}
           </div>
 
-          <div className="relative w-full md:w-80">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+          <div className="relative w-full lg:w-96">
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-cloudy-primary" size={20} />
             <input
               type="text"
-              placeholder="Search for a drink..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-white border border-gray-100 rounded-2xl font-poppins focus:outline-none focus:ring-2 focus:ring-cloudy-pink transition-all shadow-sm"
+              placeholder="Search for your favorites..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-14 pr-6 py-4.5 bg-white border border-cloudy-mist rounded-2xl font-poppins font-semibold text-cloudy-text focus:outline-none focus:ring-4 focus:ring-cloudy-primary/10 transition-all shadow-sm"
             />
           </div>
         </div>
@@ -111,44 +90,57 @@ const Menu = () => {
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
         >
-          <AnimatePresence>
+          <AnimatePresence mode='popLayout'>
             {filteredItems.map((item) => (
               <motion.div
                 key={item.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group border border-gray-50"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+                className="glass-card overflow-hidden group flex flex-col h-full hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-500"
               >
                 <div className="relative h-72 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center space-x-1 shadow-sm">
-                    <Star className="text-yellow-400 fill-yellow-400" size={14} />
-                    <span className="text-xs font-bold text-cloudy-brown">{item.rating}</span>
+                  <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center space-x-2 shadow-sm border border-white">
+                    <Star className="text-cloudy-accent fill-cloudy-accent" size={14} />
+                    <span className="text-sm font-black text-cloudy-text">{item.rating}</span>
                   </div>
-                  <div className="absolute top-4 left-4 bg-cloudy-brown text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-                    {item.category}
-                  </div>
+                  {item.popular && (
+                    <div className="absolute top-6 left-6 bg-gradient-to-r from-cloudy-secondary to-cloudy-pink text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-2xl shadow-lg">
+                      Popular
+                    </div>
+                  )}
+                  {/* Image Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-cloudy-text/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
 
-                <div className="p-8 space-y-4">
+                <div className="p-10 space-y-6 flex flex-col flex-grow">
                   <div className="flex justify-between items-start">
-                    <h3 className="text-2xl font-serif font-bold text-cloudy-brown">{item.name}</h3>
-                    <span className="text-xl font-bold text-cloudy-brown">${item.price}</span>
+                    <h3 className="text-2xl font-serif font-black text-cloudy-text group-hover:text-cloudy-primary transition-colors leading-tight">
+                      {item.name}
+                    </h3>
+                    <span className="text-2xl font-black text-cloudy-primary">${item.price}</span>
                   </div>
-                  <p className="text-gray-500 font-poppins text-sm leading-relaxed">
+                  <p className="text-gray-400 font-poppins text-sm leading-relaxed flex-grow">
                     {item.description}
                   </p>
-                  <button className="w-full bg-cloudy-pink/30 text-cloudy-brown py-4 rounded-2xl font-poppins font-bold hover:bg-cloudy-brown hover:text-white transition-all flex items-center justify-center space-x-2">
-                    <ShoppingCart size={20} />
-                    <span>Add to Cart</span>
-                  </button>
+
+                  <div className="grid grid-cols-2 gap-4 pt-4">
+                    <button className="flex items-center justify-center space-x-2 bg-cloudy-primary text-white py-4 rounded-2xl font-poppins font-black hover:shadow-lg hover:shadow-cloudy-primary/20 hover:-translate-y-1 transition-all text-sm active:scale-95">
+                      <Plus size={18} />
+                      <span>Add</span>
+                    </button>
+                    <button className="flex items-center justify-center space-x-2 border-2 border-cloudy-mist text-cloudy-text py-4 rounded-2xl font-poppins font-black hover:bg-cloudy-mist/30 transition-all text-sm active:scale-95">
+                      <Settings2 size={18} />
+                      <span>Custom</span>
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -156,9 +148,25 @@ const Menu = () => {
         </motion.div>
 
         {filteredItems.length === 0 && (
-          <div className="text-center py-20">
-            <p className="text-gray-400 font-poppins text-xl">No drinks found matching your search. Try something else!</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-32 space-y-6"
+          >
+            <div className="bg-white w-24 h-24 rounded-[2.5rem] flex items-center justify-center mx-auto shadow-xl border border-cloudy-mist text-cloudy-mist">
+              <Search size={40} />
+            </div>
+            <div>
+              <p className="text-cloudy-text font-serif font-black text-2xl">No drinks found</p>
+              <p className="text-gray-400 font-poppins mt-2">Try searching for something else or clear the filters.</p>
+            </div>
+            <button
+              onClick={() => {setActiveCategory('all'); setSearchQuery('');}}
+              className="btn-primary"
+            >
+              Clear all filters
+            </button>
+          </motion.div>
         )}
       </div>
     </div>
